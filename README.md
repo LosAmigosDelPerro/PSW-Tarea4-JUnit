@@ -1,4 +1,4 @@
-# Tarea 1 - Pruebas de Software
+# Tarea 4 - Pruebas de Software
 Gestor y generador de contraseñas.
 
 ## Descripcion
