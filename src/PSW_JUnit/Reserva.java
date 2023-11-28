@@ -22,3 +22,9 @@ public class Reserva {
     public String getCodigoReserva() {
         return codigoReserva;
     }
+
+    @Override
+    public String toString() {
+        return "[" + nombre + " , " + codigoReserva +  " , " +  numAsientosReservados +"]";
+    }
+}

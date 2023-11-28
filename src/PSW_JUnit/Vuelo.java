@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-
+ 
 public class Vuelo {
 	
 	private String codigoVuelo;
@@ -131,6 +131,29 @@ public class Vuelo {
 		setDestino(destino);
 		this.listaReservas = new ArrayList<>();
 	}
+
+	// metodo para obtener todas las reservas
+	public String obtenerReservas() {
+		String reservas = "";
+		for (Reserva reserva : listaReservas) {
+			reservas += reserva.toString();
+		}
+		return reservas;
+	}
+
+
+	@Override
+    public String toString() {
+        return "\nVuelo:"+ "\n" +
+                "Codigo vuelo = " + codigoVuelo + "\n" +
+                "Número de asientoss = " + numAsientos + "\n" +
+                "Número de asientos ocupados = " + numAsientosOcupados + "\n"+
+                "Fecha y hora de salida = " + fechaYHoraSalida + "\n"+
+                "Fecha y hora de llegada = " + fechaYHoraLlegada + "\n"+
+                "Origen = " + origen + "\n" +
+                "Destino = " + destino + "\n" +
+                "Reservas = " + obtenerReservas() + "\n";
+    }
 }
 
 

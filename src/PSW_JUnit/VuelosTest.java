@@ -47,7 +47,7 @@ class VuelosTest {
 		gestionVuelos.crearVuelo("IB1234", 100, "26-11-2023 12:00", "26-11-2023 14:00", "Santiago", "Coquimbo");
 		Vuelo vuelo = gestionVuelos.buscarVueloPorCodigo("IB1234");
 		assertEquals("IB1234", vuelo.getCodigoVuelo());
-		boolean result = gestionVuelos.crearReservas("IB1234", 10, "R1234", "Juan Perez");
+		boolean result = gestionVuelos.crearReservas("IB1234", 10, "Juan Perez");
 		assertTrue(result);
 		assertEquals(10, vuelo.getNumAsientosOcupados());
 	}
@@ -57,7 +57,7 @@ class VuelosTest {
 		gestionVuelos.crearVuelo("IB1234", 100, "26-11-2023 12:00", "26-11-2023 14:00", "Santiago", "Coquimbo");
 		Vuelo vuelo = gestionVuelos.buscarVueloPorCodigo("IB1234");
 		assertEquals("IB1234", vuelo.getCodigoVuelo());
-		boolean result = gestionVuelos.crearReservas("IB1234", 110, "R1234", "Juan Perez");
+		boolean result = gestionVuelos.crearReservas("IB1234", 110, "Juan Perez");
 		assertFalse(result);
 		assertEquals(0, vuelo.getNumAsientosOcupados());
 	}

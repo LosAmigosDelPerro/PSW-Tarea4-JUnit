@@ -13,8 +13,13 @@ public class GestionVuelos {
     }
 
     public void crearVuelo(String codigoVuelo, Integer numAsientos, String fechaYHoraSalida, String fechaYHoraLlegada, String origen, String destino) {
+        if (buscarVueloPorCodigo(codigoVuelo) != null) {
+            System.out.println("\n El código ingresado ya está siendo ocupado por otro vuelo, intente con otro\n");
+            return;
+        }
         Vuelo vuelo = new Vuelo(codigoVuelo, numAsientos, fechaYHoraSalida, fechaYHoraLlegada, origen, destino);
         listaVuelos.add(vuelo);
+        System.out.println("Vuelo creado exitosamente");
     }
 
     public Vuelo buscarVueloPorCodigo(String codigo) {
@@ -23,7 +28,7 @@ public class GestionVuelos {
                 return vuelo;
             }
         }
-        return null; // Si no se encuentra el vuelo con ese código
+        return null; // Si no se encuentra el vuelo con ese codigo
     }
 
     public List<Vuelo> obtenerTodosLosVuelos() {
@@ -46,6 +51,16 @@ public class GestionVuelos {
             }
         }
         return false;
+    }
+
+    public List<Vuelo> buscarVuelosPorOrigenYDestino(String origen, String destino) {
+        List<Vuelo> listaFiltrada = new ArrayList<>();
+        for (Vuelo vuelo : listaVuelos) {
+            if (vuelo.getOrigen().equals(origen) && vuelo.getDestino().equals(destino)) {
+                listaFiltrada.add(vuelo);
+            }
+        }
+        return listaFiltrada;
     }
 
     public void eliminarVuelo(String codigo) {
